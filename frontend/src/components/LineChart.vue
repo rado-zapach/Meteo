@@ -30,16 +30,15 @@
           'graphs': [
             {
               'title': this.title,
-              'valueField': this.valueField,
-              'type': 'smoothedLine'
+              'valueField': this.valueField
+//              'connect': false
             }
           ],
           'categoryField': this.categoryField,
           'dataProvider': this.dataProvider,
           'categoryAxis': {
             'parseDates': true,
-            'minPeriod': 'ss',
-            'minorGridEnabled': true
+            'minPeriod': 'mm'
           }
         }
       )

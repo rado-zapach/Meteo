@@ -9,13 +9,13 @@ import oshi.hardware.Sensors;
 @Component
 public class SystemTemperature extends BaseRecording implements Measurable
 {
-	@Scheduled(fixedRate = 10*1000)
+	@Scheduled(fixedRate = 5*60*1000)
 	public void measure()
 	{
 		SystemInfo si = new SystemInfo();
 		HardwareAbstractionLayer hal = si.getHardware();
 		Sensors sensors = hal.getSensors();
 
-		record(sensors.getCpuTemperature(), "Temperature");
+		record(sensors.getCpuTemperature(), "t-cpu");
 	}
 }

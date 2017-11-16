@@ -13,33 +13,25 @@
         dataProvider: null,
         title: 'Cpu temperature',
         valueField: 'value',
-        categoryField: 'created',
-        date: new Date(),
-        ended: true
+        categoryField: 'created'
       }
     },
+    props: ['type'],
     created () {
-      this.date.setDate(this.date.getDate() - 365)
-      this.getData(this.date)
+      var date = new Date()
+      date.setMonth(date.getMonth() - 1)
 
-      setInterval(() => {
-        if(this.ended) {
-          this.getData()
-        }
-      }, 10000)
+      this.getData(date)
     },
     methods: {
-      getData: function () {
-        this.ended = false
+      getData: function (date) {
         AXIOS.get('sensors/search/findAllByTypeAndCreatedAfterOrderByCreatedAsc', {
           params: {
-            'type': 'Temperature',
-            'createdAfter': this.date.toISOString()
+            'type': this.type,
+            'createdAfter': date.toISOString()
           }
         }).then(response => {
           this.dataProvider = response.data._embedded.sensors
-          this.date = new Date()
-          this.ended = true
         })
       }
     }

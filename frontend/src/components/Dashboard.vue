@@ -26,8 +26,16 @@
         </div>
       </div>
 
-      <cpu-temperature-line></cpu-temperature-line>
+      <camera manifest="/camera/manifest.mpd"></camera>
+
+      <line-graph type="t-cpu"></line-graph>
       <cpu-temperature-gauge></cpu-temperature-gauge>
+
+      <line-graph type="t-DHT22-22"></line-graph>
+      <line-graph type="t-DHT22-27"></line-graph>
+
+      <line-graph type="h-DHT22-22"></line-graph>
+      <line-graph type="h-DHT22-27"></line-graph>
 
     </div>
   </div>
@@ -36,11 +44,12 @@
 <script>
   import SystemInfo from './SystemInfo.vue'
   import {AXIOS} from './http-commons'
-  import CpuTemperatureLine from './CpuTemperatureLine.vue'
+  import LineGraph from './LineGraph.vue'
   import CpuTemperatureGauge from './CpuTemperatureGauge.vue'
+  import Camera from './Camera.vue'
 
   export default {
-    components: {SystemInfo, CpuTemperatureLine, CpuTemperatureGauge},
+    components: {SystemInfo, LineGraph, CpuTemperatureGauge, Camera},
     data () {
       return {
         csTitle: 'Computer system',
