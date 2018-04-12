@@ -26,8 +26,44 @@
         </div>
       </div>
 
-      <cpu-temperature-line></cpu-temperature-line>
-      <cpu-temperature-gauge></cpu-temperature-gauge>
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="text-center">Camera</h2>
+        </div>
+      </div>
+      <div class="row">
+        <camera style="float: none; margin: 0 auto;" manifest="/camera/manifest.mpd"></camera>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="text-center">CPU temperature</h2>
+        </div>
+      </div>
+      <div class="row">
+        <line-graph type="t-cpu" title="t-cpu"></line-graph>
+        <cpu-temperature-gauge></cpu-temperature-gauge>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="text-center">Temperature sensors t1, t2</h2>
+        </div>
+      </div>
+      <div class="row">
+        <line-graph type="t-DHT22-22" title="22-t"></line-graph>
+        <line-graph type="t-DHT22-27" title="27-t"></line-graph>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="text-center">Humidity sensors h1, h2</h2>
+        </div>
+      </div>
+      <div class="row">
+        <line-graph type="h-DHT22-22" title="22-h"></line-graph>
+        <line-graph type="h-DHT22-27" title="27-h"></line-graph>
+      </div>
 
     </div>
   </div>
@@ -36,11 +72,12 @@
 <script>
   import SystemInfo from './SystemInfo.vue'
   import {AXIOS} from './http-commons'
-  import CpuTemperatureLine from './CpuTemperatureLine.vue'
+  import LineGraph from './LineGraph.vue'
   import CpuTemperatureGauge from './CpuTemperatureGauge.vue'
+  import Camera from './Camera.vue'
 
   export default {
-    components: {SystemInfo, CpuTemperatureLine, CpuTemperatureGauge},
+    components: {SystemInfo, LineGraph, CpuTemperatureGauge, Camera},
     data () {
       return {
         csTitle: 'Computer system',
