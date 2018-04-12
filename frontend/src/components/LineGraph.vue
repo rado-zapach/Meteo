@@ -32,6 +32,7 @@
           }
         }).then(response => {
           this.dataProvider = response.data._embedded.sensors
+          console.log(this.dataProvider)
         })
       }
     }

@@ -26,16 +26,44 @@
         </div>
       </div>
 
-      <camera manifest="/camera/manifest.mpd"></camera>
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="text-center">Camera</h2>
+        </div>
+      </div>
+      <div class="row">
+        <camera style="float: none; margin: 0 auto;" manifest="/camera/manifest.mpd"></camera>
+      </div>
 
-      <line-graph type="t-cpu"></line-graph>
-      <cpu-temperature-gauge></cpu-temperature-gauge>
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="text-center">CPU temperature</h2>
+        </div>
+      </div>
+      <div class="row">
+        <line-graph type="t-cpu" title="t-cpu"></line-graph>
+        <cpu-temperature-gauge></cpu-temperature-gauge>
+      </div>
 
-      <line-graph type="t-DHT22-22"></line-graph>
-      <line-graph type="t-DHT22-27"></line-graph>
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="text-center">Temperature sensors t1, t2</h2>
+        </div>
+      </div>
+      <div class="row">
+        <line-graph type="t-DHT22-22" title="22-t"></line-graph>
+        <line-graph type="t-DHT22-27" title="27-t"></line-graph>
+      </div>
 
-      <line-graph type="h-DHT22-22"></line-graph>
-      <line-graph type="h-DHT22-27"></line-graph>
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="text-center">Humidity sensors h1, h2</h2>
+        </div>
+      </div>
+      <div class="row">
+        <line-graph type="h-DHT22-22" title="22-h"></line-graph>
+        <line-graph type="h-DHT22-27" title="27-h"></line-graph>
+      </div>
 
     </div>
   </div>
